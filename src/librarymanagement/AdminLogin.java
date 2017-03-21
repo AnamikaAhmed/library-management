@@ -163,7 +163,7 @@ public class AdminLogin extends javax.swing.JFrame {
         String name = jTextField1.getText();
         String password = new String(passwordField.getPassword());
         
-        if(password.equals("admin123") && name.equals("admin")){
+        if(password.equals("admin123456") && name.equals("admin")){
             passwordField.setText("");
             jTextField1.setText("");
             this.setVisible(false);
