@@ -1,6 +1,9 @@
 package librarymanagement;
 
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import librarymanagement.Admin_Section;
@@ -86,7 +89,7 @@ public class AdminLogin extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Anamika Ahmed\\Desktop\\member-default.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymanagement/member-default.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         jLabel3.setIconTextGap(2);
 
@@ -96,7 +99,7 @@ public class AdminLogin extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 228, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,12 +166,16 @@ public class AdminLogin extends javax.swing.JFrame {
         String name = jTextField1.getText();
         String password = new String(passwordField.getPassword());
         
-        if(password.equals("admin123456") && name.equals("admin")){
-            passwordField.setText("");
-            jTextField1.setText("");
-            this.setVisible(false);
-           databaseConnectivity s2 = new databaseConnectivity();
-           s2.setVisible(true);
+        if(password.equals("admin123") && name.equals("admin")){
+            try {
+                passwordField.setText("");
+                jTextField1.setText("");
+                this.setVisible(false);
+                LibrarianList s2 = new LibrarianList();
+                s2.setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminLogin.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
             
         

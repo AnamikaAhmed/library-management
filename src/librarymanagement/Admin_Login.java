@@ -17,6 +17,7 @@ public class Admin_Login extends javax.swing.JFrame {
     
     public Admin_Login() {
         initComponents();
+        setTitle("Welcome");
     }
 
     /**
@@ -76,7 +77,7 @@ public class Admin_Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Anamika Ahmed\\Desktop\\library mana.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarymanagement/library mana.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Script MT Bold", 2, 36)); // NOI18N
         jLabel1.setText("Library Management System");
@@ -142,7 +143,9 @@ public class Admin_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-this.dispose();        // TODO add your handling code here:
+        this.dispose();
+        LibrarianLogin s = new LibrarianLogin();
+                          s.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
